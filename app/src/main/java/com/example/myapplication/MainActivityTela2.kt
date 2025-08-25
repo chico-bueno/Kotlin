@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.sp
 //            TelaTransporte()
 //        }
 //    }
-//}
-
+//} 
+//PROFESSOR, PARA VER O CODIGO RODANDO, VC PRECISA COMENTAR O MAIN DA "TELA1", E DESCOMENTAR ESSE
 
 @Preview(showBackground = true)
 @Composable
