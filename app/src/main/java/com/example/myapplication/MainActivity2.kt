@@ -1,9 +1,5 @@
 package com.example.myapplication
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.ui.unit.dp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -33,27 +27,49 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.*
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Background()
-            Column{
-                Pesquisa()
-                Frequentes()
-                FavoritosCasa()
-                FavoritoTrabalho()
-                FavoritoDestino()
-                Rodape()
+//            TelaTransporte()
+            TelaPrincipal()
             }
         }
     }
+
+
+@Composable
+fun TelaPrincipal() {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.Black)
+        .padding(16.dp)) {
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 90.dp) // espaço para o rodapé
+        ) {
+            Pesquisa()
+            Frequentes()
+            FavoritosCasa()
+            FavoritoTrabalho()
+            FavoritoDestino()
+        }
+
+        Rodape(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+        )
+    }
 }
-@Preview
+
+
 @Composable
 fun Background(){
     Column(
@@ -63,7 +79,7 @@ fun Background(){
             .padding(16.dp)
     ){}
 }
-@Preview
+
 @Composable
 fun Pesquisa(){
 
@@ -100,7 +116,7 @@ fun Pesquisa(){
     }
 }
 
-@Preview
+
 @Composable
 fun Frequentes(){
     Spacer(modifier = Modifier.width(20.dp))
@@ -132,14 +148,14 @@ fun Frequentes(){
                     Text(text = "➡ 380 Detran ➡ 👤", style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier
                             .width(100.dp)
-                        )
+                    )
 
                 }
             }
         }
     }
 }
-@Preview
+
 @Composable
 fun FavoritosCasa() {
     Spacer(modifier = Modifier.width(20.dp))
@@ -173,7 +189,7 @@ fun FavoritosCasa() {
         }
     }
 }
-@Preview
+
 @Composable
 fun FavoritoTrabalho(){
     Spacer(modifier = Modifier.width(20.dp))
@@ -207,7 +223,7 @@ fun FavoritoTrabalho(){
         }
     }
 }
-@Preview
+
 @Composable
 
 fun FavoritoDestino(){
@@ -234,23 +250,24 @@ fun FavoritoDestino(){
         }
     }
 }
-@Preview
+
 @Composable
-fun Rodape(){
+fun Rodape(modifier: Modifier = Modifier) {
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
-        modifier = Modifier
-            .height(80.dp)
-            .padding(top = 35.dp)
+        modifier = modifier
             .fillMaxWidth()
-
+            .height(80.dp)
     ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
             Text(
-            text = "Direções   |   Estações   |   Linhas   |   Passagens", style = MaterialTheme.typography.bodyLarge, color = Color.White,
-            modifier = Modifier.padding(8.dp),
-
+                text = "Direções   |   Estações   |   Linhas   |   Passagens",
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color.White
             )
-            Spacer(modifier = Modifier.width(20.dp))
-
+        }
     }
 }
