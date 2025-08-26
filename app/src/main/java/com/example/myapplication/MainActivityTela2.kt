@@ -35,9 +35,9 @@ fun TelaTransporte() {
 
     Column(
         modifier = Modifier
-            .fillMaxSize() // Ocupa toda a tela
-            .background(Color.Black) // Fundo preto
-            .padding(16.dp) // Espaçamento interno
+            .fillMaxSize() 
+            .background(Color.Black)
+            .padding(16.dp) 
     ) {
 
         Text(
@@ -182,7 +182,7 @@ fun TelaTransporte() {
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(
-                    imageVector = Icons.Default.Place, // Use Place para evitar dependência
+                    imageVector = Icons.Default.Place,
                     contentDescription = "Mapa Ilustrativo",
                     tint = Color.LightGray,
                     modifier = Modifier.size(48.dp)
