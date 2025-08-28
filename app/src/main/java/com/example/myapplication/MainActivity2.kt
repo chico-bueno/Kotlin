@@ -29,6 +29,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 
 
 class MainActivity2 : ComponentActivity() {
@@ -42,7 +46,7 @@ class MainActivity2 : ComponentActivity() {
         }
     }
 
-
+@Preview
 @Composable
 fun TelaPrincipal() {
     Box(modifier = Modifier
@@ -53,7 +57,7 @@ fun TelaPrincipal() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 90.dp) // espaço para o rodapé
+                .padding(bottom = 90.dp)
         ) {
             Pesquisa()
             Frequentes()
@@ -69,37 +73,27 @@ fun TelaPrincipal() {
     }
 }
 
-
 @Composable
-fun Background(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-            .padding(16.dp)
-    ){}
-}
-
-@Composable
-fun Pesquisa(){
+fun Pesquisa() {
 
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
         modifier = Modifier
             .height(56.dp)
             .padding(top = 16.dp)
-
     ) {
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
-
         ) {
-            Column {
-                Text("      Para onde você quer ir?", style = MaterialTheme.typography.bodyLarge, color = Color.White)
-            }
-
+            Text(
+                "        Para onde você quer ir?",
+                style = MaterialTheme.typography.bodyLarge,
+                fontSize = 17.sp,
+                color = Color.White
+            )
 
             Surface(
                 modifier = Modifier.size(56.dp),
@@ -111,7 +105,6 @@ fun Pesquisa(){
                     modifier = Modifier.size(40.dp)
                 )
             }
-            Spacer(modifier = Modifier.width(20.dp))
         }
     }
 }
@@ -137,15 +130,29 @@ fun Frequentes(){
             Spacer(modifier = Modifier.width(20.dp))
 
             Column {
-                Text("Destinos frequentes", style = MaterialTheme.typography.labelMedium, color = Color.White)
-                Text("Para ABO - Associação Brasileira de Odontologia - Secção Paraná", style = MaterialTheme.typography.headlineSmall, color = Color.White)
+                Text("Destinos frequentes",
+                    style = MaterialTheme
+                        .typography
+                        .labelMedium
+                    , color = Color.White,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,)
+                Text("Para ABO - Associação Brasileira de Odontologia - Secção Paraná",
+                    style = MaterialTheme
+                        .typography.headlineSmall,
+                    fontSize = 24.sp,
+                    color = Color.White)
                 Surface(
                     modifier = Modifier
                         .width(200.dp)
                         .height(35.dp),
                     color = Color.LightGray,
                 ) {
-                    Text(text = "➡ 380 Detran ➡ 👤", style = MaterialTheme.typography.titleLarge,
+                    Text(text = "➡ 380 Detran ➡ 👤",
+                        style = MaterialTheme
+                            .typography
+                            .titleLarge,
+                        fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .width(100.dp)
                     )
@@ -162,7 +169,7 @@ fun FavoritosCasa() {
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
         modifier = Modifier
-            .height(100.dp)
+            .height(89.dp)
             .padding(10.dp)
 
     ) {
@@ -173,7 +180,14 @@ fun FavoritosCasa() {
 
         ) {
             Text(
-                text = "🏠 Casa ", style = MaterialTheme.typography.titleLarge, color = Color.White,
+                text = "🏠 Casa ",
+                style = MaterialTheme
+                    .typography
+                    .titleLarge,
+                color = Color.White,
+                fontSize = 19.sp,
+                fontWeight = FontWeight.Bold,
+
                 modifier = Modifier.padding(16.dp),
 
                 )
@@ -181,7 +195,9 @@ fun FavoritosCasa() {
             Text(
                 text = "Voce esta perto",
                 style = MaterialTheme.typography.titleMedium,
-                color = Color.White,
+                color = Color(0xFFFF9500),
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(16.dp),
             )
 
@@ -196,7 +212,7 @@ fun FavoritoTrabalho(){
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
         modifier = Modifier
-            .height(100.dp)
+            .height(89.dp)
             .padding(10.dp)
 
     ) {
@@ -207,7 +223,13 @@ fun FavoritoTrabalho(){
 
         ) {
             Text(
-                text = "🌇 Trabalho ", style = MaterialTheme.typography.titleLarge, color = Color.White,
+                text = "🌇 Trabalho ",
+                style = MaterialTheme
+                    .typography
+                    .titleLarge,
+                color = Color.White,
+                fontSize = 19.sp,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(16.dp),
 
                 )
@@ -215,7 +237,7 @@ fun FavoritoTrabalho(){
             Text(
                 text = "Toque para Editar",
                 style = MaterialTheme.typography.titleMedium,
-                color = Color.White,
+                color = Color(0xFFFF9500),
                 modifier = Modifier.padding(16.dp),
             )
 
@@ -239,13 +261,24 @@ fun FavoritoDestino(){
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "☸ ABO-Associoação Brasileira de Odontologia - Secção Paraná", style = MaterialTheme.typography.titleLarge, color = Color.White,
+                text = "☸ ABO-Associoação Brasileira de Odontologia - Secção Paraná",
+                style = MaterialTheme
+                    .typography
+                    .titleLarge,
+                color = Color.White,
+                fontSize = 20.sp,
                 modifier = Modifier.padding(bottom = 4.dp),
             )
 
             Text(
-                text = "Rua Dias da Rocha Filho - Alto da XV, Curitiba - PR, Brasil", style = MaterialTheme.typography.titleLarge, color = Color.White,
-            )
+                text = "Rua Dias da Rocha Filho - Alto da XV, Curitiba - PR, Brasil",
+                style = MaterialTheme
+                    .typography
+                    .titleLarge,
+                color = Color.White,
+                fontSize = 20.sp,
+
+                )
 
         }
     }
@@ -253,21 +286,35 @@ fun FavoritoDestino(){
 
 @Composable
 fun Rodape(modifier: Modifier = Modifier) {
-    Card(
-        colors = CardDefaults.cardColors(Color.DarkGray),
+    Row(
         modifier = modifier
             .fillMaxWidth()
             .height(80.dp)
+            .padding(vertical = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "Direções   |   Estações   |   Linhas   |   Passagens",
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color.White
-            )
+        listOf("Direções", "Estações", "Linhas", "Passagens").forEach { texto ->
+            Card(
+                colors = CardDefaults.cardColors(Color.DarkGray),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
+                shape = RoundedCornerShape(8.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = texto,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.White,
+                        fontSize = 16.sp,
+                    )
+                }
+            }
         }
     }
 }
